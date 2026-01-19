@@ -294,7 +294,9 @@ const slides = [
   { id: 4, title: "AI Intelligence" },
   { id: 5, title: "Business First" },
   { id: 6, title: "ROAS Pilot" },
-  { id: 7, title: "About FWAIP" }
+  { id: 7, title: "RAG Case Study" },
+  { id: 8, title: "Data Cleanup" },
+  { id: 9, title: "About FWAIP" }
 ];
 
 // Slide 1 - Hero
@@ -1601,6 +1603,218 @@ const Slide6: React.FC<SlideProps> = () => {
   );
 };
 
+// Slide 7 - RAG Case Study (Vigilant)
+const Slide7: React.FC<SlideProps> = () => {
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-8 md:pt-4 pb-16 md:pb-4 overflow-y-auto">
+      <div className="max-w-5xl mx-auto w-full">
+        {/* Header Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-4 md:mb-6"
+        >
+          <span className="inline-flex items-center gap-2 px-3 md:px-4 py-1 md:py-1.5 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-[10px] md:text-xs font-medium text-cyan-400 uppercase tracking-wider">
+            <BarChart3 className="w-3 h-3" />
+            FWAIP Case Study
+          </span>
+        </motion.div>
+
+        {/* Main Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="relative bg-gradient-to-br from-cyan-500/5 to-blue-500/5 backdrop-blur-xl border border-cyan-500/20 rounded-2xl md:rounded-3xl p-4 md:p-8 overflow-hidden"
+        >
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          
+          <div className="relative z-10">
+            {/* Logo/Image area */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex justify-center mb-4 md:mb-6"
+            >
+              <div className="relative">
+                <div className="w-20 h-20 md:w-28 md:h-28 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-2xl md:rounded-3xl flex items-center justify-center border border-cyan-500/30">
+                  <Brain className="w-10 h-10 md:w-14 md:h-14 text-cyan-400" />
+                </div>
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute -top-2 -right-2 w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center"
+                >
+                  <Sparkles className="w-3 h-3 text-white" />
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Title */}
+            <motion.h2
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-xl sm:text-2xl md:text-4xl font-bold text-white text-center mb-2 md:mb-4"
+            >
+              Vigilant – <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">In-App RAG Safety Assistant</span>
+            </motion.h2>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-sm md:text-lg text-slate-300 text-center max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed"
+            >
+              Live safety intelligence from <span className="text-cyan-400 font-semibold">47 official sources</span> across <span className="text-cyan-400 font-semibold">16 countries</span>, refreshed hourly, delivered instantly to users in the field.
+            </motion.p>
+
+            {/* Key Stat */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex justify-center"
+            >
+              <div className="relative bg-gradient-to-br from-cyan-500/10 to-blue-600/10 border border-cyan-500/30 rounded-xl md:rounded-2xl p-4 md:p-6 max-w-md w-full">
+                <div className="absolute top-3 left-3">
+                  <Zap className="w-5 h-5 md:w-6 md:h-6 text-cyan-400" />
+                </div>
+                <div className="text-center pt-2">
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.7, type: "spring" }}
+                    className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-2"
+                  >
+                    65%
+                  </motion.div>
+                  <p className="text-xs md:text-sm text-slate-400">
+                    faster access to personalized safety intelligence
+                  </p>
+                  <p className="text-[10px] md:text-xs text-slate-500 mt-1">
+                    vs static content search
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+// Slide 8 - Data Cleanup Case Study
+const Slide8: React.FC<SlideProps> = () => {
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-8 md:pt-4 pb-16 md:pb-4 overflow-y-auto">
+      <div className="max-w-5xl mx-auto w-full">
+        {/* Header Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-4 md:mb-6"
+        >
+          <span className="inline-flex items-center gap-2 px-3 md:px-4 py-1 md:py-1.5 bg-purple-500/10 border border-purple-500/30 rounded-full text-[10px] md:text-xs font-medium text-purple-400 uppercase tracking-wider">
+            <Database className="w-3 h-3" />
+            FWAIP Case Study
+          </span>
+        </motion.div>
+
+        {/* Main Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="relative bg-gradient-to-br from-purple-500/5 to-pink-500/5 backdrop-blur-xl border border-purple-500/20 rounded-2xl md:rounded-3xl p-4 md:p-8 overflow-hidden"
+        >
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          
+          <div className="relative z-10">
+            {/* Logo/Image area */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex justify-center mb-4 md:mb-6"
+            >
+              <div className="relative">
+                <div className="w-20 h-20 md:w-28 md:h-28 bg-gradient-to-br from-purple-500/20 to-pink-600/20 rounded-2xl md:rounded-3xl flex items-center justify-center border border-purple-500/30">
+                  <Database className="w-10 h-10 md:w-14 md:h-14 text-purple-400" />
+                </div>
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute -top-2 -right-2 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center"
+                >
+                  <Sparkles className="w-3 h-3 text-white" />
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Title */}
+            <motion.h2
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-xl sm:text-2xl md:text-4xl font-bold text-white text-center mb-2 md:mb-4"
+            >
+              Turning 19 Years of Legacy Data Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">AI-Ready Customer Intelligence</span>
+            </motion.h2>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-sm md:text-lg text-slate-300 text-center max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed"
+            >
+              Transforming decades of accumulated customer data into structured, actionable intelligence ready for AI-powered insights and automation.
+            </motion.p>
+
+            {/* Key Stat */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex justify-center"
+            >
+              <div className="relative bg-gradient-to-br from-purple-500/10 to-pink-600/10 border border-purple-500/30 rounded-xl md:rounded-2xl p-4 md:p-6 max-w-md w-full">
+                <div className="absolute top-3 left-3">
+                  <Clock className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
+                </div>
+                <div className="text-center pt-2">
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.7, type: "spring" }}
+                    className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-2"
+                  >
+                    2.5 Weeks
+                  </motion.div>
+                  <p className="text-xs md:text-sm text-slate-400">
+                    to complete full data transformation
+                  </p>
+                  <p className="text-[10px] md:text-xs text-slate-500 mt-1">
+                    vs 6+ months of manual work
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
 // Case Study Modal Component
 const CaseStudyModal = ({ isOpen, onClose, caseStudy }: { isOpen: boolean; onClose: () => void; caseStudy: 'vigilant' | 'reconciliation' | null }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -1692,8 +1906,8 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: { isOpen: boolean; onClo
   );
 };
 
-// Slide 7 - About Flywheel AI Partners
-const Slide7: React.FC<SlideProps> = () => {
+// Slide 9 - About Flywheel AI Partners
+const Slide9: React.FC<SlideProps> = () => {
   const [selectedCase, setSelectedCase] = useState<'vigilant' | 'reconciliation' | null>(null);
 
   return (
@@ -1944,7 +2158,7 @@ const FWAIPPresentation: React.FC = () => {
     touchStartY.current = null;
   };
 
-  const SlideComponents = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7];
+  const SlideComponents = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7, Slide8, Slide9];
 
   return (
     <div 
