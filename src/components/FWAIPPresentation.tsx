@@ -5,7 +5,7 @@ import {
   Users, CheckCircle, Building, Zap,
   Rocket, BarChart3, AlertCircle, Target, Database,
   ShoppingCart, Sparkles, Package, Clock,
-  Lock, Gauge, Layers, Headphones, Award, X, ArrowRight
+  Lock, Gauge, Layers, Headphones, Award, X, ArrowRight, ExternalLink
 } from 'lucide-react';
 
 interface SlideProps {
@@ -1702,6 +1702,26 @@ const Slide7: React.FC<SlideProps> = () => {
                 </div>
               </div>
             </motion.div>
+
+            {/* View Full Case Study Link */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="flex justify-center mt-6"
+            >
+              <motion.a
+                href="https://fwaip.com/rag-case-study"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold text-sm md:text-base rounded-xl shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-300"
+              >
+                <span>View Full Case Study</span>
+                <ExternalLink className="w-4 h-4" />
+              </motion.a>
+            </motion.div>
           </div>
         </motion.div>
       </div>
@@ -1807,6 +1827,26 @@ const Slide8: React.FC<SlideProps> = () => {
                   </p>
                 </div>
               </div>
+            </motion.div>
+
+            {/* View Full Case Study Link */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="flex justify-center mt-6"
+            >
+              <motion.a
+                href="https://fwaip.com/data-cleanup-case-study"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold text-sm md:text-base rounded-xl shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
+              >
+                <span>View Full Case Study</span>
+                <ExternalLink className="w-4 h-4" />
+              </motion.a>
             </motion.div>
           </div>
         </motion.div>
