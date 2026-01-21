@@ -1,22 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Brain, TrendingUp, ChevronLeft, ChevronRight, ChevronDown,
+  Brain, TrendingUp, ChevronLeft, ChevronRight,
   Users, CheckCircle, Building, Zap,
   Rocket, BarChart3, AlertCircle, Target, Database,
-  ShoppingCart, Sparkles, Package, Clock,
+  Sparkles, Clock,
   Lock, Gauge, Layers, Headphones, Award, X, ArrowRight, ExternalLink,
-  Shield, Eye, FileText
+  Shield, Eye, FileText, Activity, Cpu, 
+  GitBranch, TestTube, AlertTriangle, HeartPulse, Workflow
 } from 'lucide-react';
 
 interface SlideProps {
   isActive?: boolean;
   slideIndex: number;
-}
-
-interface SlideProps {
-  isActive?: boolean;
-  slideIndex: number;
+  onOpenTechnicalModal?: () => void;
 }
 
 // Animated Counter with Hover Interaction
@@ -2433,7 +2430,7 @@ const SlideProduction: React.FC<SlideProps> = () => {
 };
 
 // Slide: It Gets Smarter (Evaluation Discipline)
-const SlideImprovement: React.FC<SlideProps> = () => {
+const SlideImprovement: React.FC<SlideProps> = ({ onOpenTechnicalModal }) => {
   const pillars = [
     {
       icon: Target,
@@ -2500,6 +2497,25 @@ const SlideImprovement: React.FC<SlideProps> = () => {
           <p className="text-base md:text-lg text-slate-300 text-center">
             We treat AI like infrastructure — <span className="text-white font-semibold">tested, versioned, monitored.</span>
           </p>
+        </motion.div>
+
+        {/* Dive Deeper Link */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="text-center mt-6"
+        >
+          <motion.button
+            onClick={onOpenTechnicalModal}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 hover:from-cyan-500/30 hover:to-purple-500/30 border border-cyan-500/40 hover:border-cyan-400/60 rounded-xl text-white font-medium transition-all duration-300 group"
+          >
+            <FileText className="w-4 h-4 text-cyan-400" />
+            <span>Dive Deeper into Technical</span>
+            <ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 transition-transform" />
+          </motion.button>
         </motion.div>
       </div>
     </div>
@@ -3197,9 +3213,817 @@ const Slide23: React.FC<SlideProps> = () => {
   );
 };
 
+// Technical Deep Dive Modal
+interface TechnicalDeepDiveModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const TechnicalDeepDiveModal: React.FC<TechnicalDeepDiveModalProps> = ({ isOpen, onClose }) => {
+  const [modalSlide, setModalSlide] = useState(0);
+  
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const modalSlides: Array<{ type: string; content: any }> = [
+    // Slide 0: Title
+    {
+      type: 'title',
+      content: {
+        badge: 'CTO-GRADE ARCHITECTURE',
+        title: 'Technical Differentiation Report',
+        subtitle: 'Flywheel Intelligence Cloud (FIC) as the defensive operating layer for production AI deployments'
+      }
+    },
+    // Slide 1: Core Thesis
+    {
+      type: 'thesis',
+      content: {
+        title: "Core Thesis: Operationalization Is the Moat",
+        sections: [
+          {
+            heading: "What's Being Commoditized",
+            text: "LLMs are rapidly becoming commodities. OpenAI, Anthropic, and Google are building the experience layer—chat interfaces, app ecosystems, and generic connectors. They're racing to package \"HIPAA-ready\" solutions with basic retrieval over enterprise content.",
+            highlight: "The differentiation isn't in the model anymore. It's in the operational infrastructure that surrounds it."
+          },
+          {
+            heading: "Where Real Value Lives",
+            text: "What they cannot commoditize: your system of record, historical truth layer, governance models across internal systems, workflow reliability guarantees, monitoring and incident response protocols, and vertical domain workflows with evaluation instrumentation.",
+            highlight: "Flywheel builds the operating layer—the data, control, and runtime infrastructure that makes AI reliable, governable, portable, and measurable in production."
+          }
+        ]
+      }
+    },
+    // Slide 2: Architecture
+    {
+      type: 'architecture',
+      content: {
+        title: "Flywheel Intelligence Cloud Architecture",
+        planes: [
+          { 
+            icon: Database, 
+            name: "Data Plane", 
+            desc: "Customer-owned system of record: operational databases, artifact stores, retrieval indexes with permissions and provenance tracking",
+            color: "cyan"
+          },
+          { 
+            icon: Shield, 
+            name: "Control Plane", 
+            desc: "Governance and security: RBAC/ABAC, policy engines, secrets vaulting, immutable audit logs",
+            color: "purple"
+          },
+          { 
+            icon: Workflow, 
+            name: "Runtime Plane", 
+            desc: "Orchestration: workflow engines, job systems, reliability primitives, intelligent model routing",
+            color: "emerald"
+          },
+          { 
+            icon: Activity, 
+            name: "Observability Plane", 
+            desc: "Health pinging, distributed tracing, error classification, SLO dashboards for operational excellence",
+            color: "blue"
+          },
+          { 
+            icon: Layers, 
+            name: "Product Plane", 
+            desc: "Client UX with status widgets, documentation, support channels, and agentic operational dashboards",
+            color: "orange"
+          }
+        ]
+      }
+    },
+    // Slide 3: Data Plane Durability
+    {
+      type: 'differentiator',
+      content: {
+        badge: "TECHNICAL DIFFERENTIATOR #1",
+        title: "Data-Plane Durability: The \"No Scramble\" Advantage",
+        intro: "Most AI platforms treat third-party data as ephemera—retrieve it, use it, forget it. When a customer switches from HubSpot to Salesforce, they lose their historical context and have to scramble to export critical records before the switch.",
+        items: [
+          { num: "01", title: "Canonical Schemas", desc: "Persist normalized entities: Customer, Location, Invoice, Order, Post, Campaign with consistent structure" },
+          { num: "02", title: "Provenance Fields", desc: "Track source_system, source_id, fetched_at, version for complete data lineage and auditability" },
+          { num: "03", title: "History Strategy", desc: "Append-only events or SCD tables preserve the complete timeline of changes and decisions" },
+          { num: "04", title: "Outcome Logs", desc: "Record what the agent did, what changed, and verification results for accountability" }
+        ],
+        result: "Result: If the client leaves any third-party platform, the historical record and AI memory remain completely intact—no emergency export procedures, no data loss, no scramble."
+      }
+    },
+    // Slide 4: Governance & Reliability
+    {
+      type: 'governance',
+      content: {
+        title: "Governance and Reliability Beyond Chat Interfaces",
+        columns: [
+          {
+            heading: "Governance Architecture",
+            items: [
+              "Tenant isolation at database, workflow, and credential boundaries",
+              "Permission-mapped retrieval that respects user and service role access",
+              "Policy-based tool execution with approval gates for high-risk actions",
+              "Exportable audit trails for compliance and review"
+            ],
+            color: "cyan"
+          },
+          {
+            heading: "Reliability Primitives",
+            items: [
+              "Idempotency keys for every side-effecting action",
+              "Retry and backoff policies tuned by integration type",
+              "Reconciliation jobs to verify writes landed correctly and fix drift",
+              "Dead-letter queues for exception handling and human review"
+            ],
+            color: "purple"
+          }
+        ],
+        footer: "Chat platforms provide conversational UX. They don't provide the operational guarantees that production systems require. FIC standardizes reliability patterns that enterprise infrastructure demands."
+      }
+    },
+    // Slide 5: Evaluation Discipline
+    {
+      type: 'evaluation',
+      content: {
+        title: "Evaluation as Software Engineering Discipline",
+        items: [
+          { icon: TestTube, title: "Golden Test Suites", desc: "Per-workflow test cases with expected structured outputs for regression detection", color: "cyan" },
+          { icon: Gauge, title: "Evaluation Harness", desc: "Automated assessment of retrieval accuracy and tool-call correctness against benchmarks", color: "purple" },
+          { icon: GitBranch, title: "Release Gates", desc: "Cannot deploy without passing evaluation thresholds—quality is enforced, not hoped for", color: "emerald" },
+          { icon: Activity, title: "Monitoring Loop", desc: "Top error classes directly feed roadmap prioritization for continuous improvement", color: "blue" }
+        ],
+        footer: "AI applications are software systems. They require the same engineering discipline: version control, testing, quality gates, and observability. FIC treats AI operations as first-class infrastructure, not experimental prototypes."
+      }
+    },
+    // Slide 6: Security & Threat Mitigation
+    {
+      type: 'security',
+      content: {
+        title: "Security and Threat Mitigation",
+        threats: [
+          "Prompt injection via connected documents",
+          "Data exfiltration through tool calls",
+          "Over-permissioned connector scopes",
+          "Model hallucination causing incorrect writebacks",
+          "Supply chain risk from third-party workflows"
+        ],
+        mitigations: [
+          { title: "Permission-Scoped Retrieval", desc: "Allowlists and access controls at the data layer" },
+          { title: "Read/Write Separation", desc: "Approval gates for state-changing operations" },
+          { title: "Output Validation", desc: "Schema validation and business rule verification" },
+          { title: "Sandboxed Tool Calls", desc: "Least-privilege credentials and execution isolation" },
+          { title: "Immutable Audit", desc: "Anomaly detection on complete event history" }
+        ]
+      }
+    },
+    // Slide 7: Healthcare Position
+    {
+      type: 'healthcare',
+      content: {
+        title: "Healthcare Market Position",
+        intro: "OpenAI and Anthropic are aggressively pushing healthcare offerings with BAAs and HIPAA-ready packaging. This commoditizes \"HIPAA chat\"—but that's just compliance theater without operational substance.",
+        items: [
+          { title: "PHI Boundary Enforcement", desc: "Control plane enforces protected health information boundaries at every layer, not just in the chat interface" },
+          { title: "Auditable Clinical Workflows", desc: "Prior authorization, revenue cycle management, and documentation workflows with verification and accountability trails" },
+          { title: "Deployment Flexibility", desc: "On-premises, VPC, and tenant isolation patterns that meet enterprise healthcare security requirements" },
+          { title: "Retention Controls", desc: "Strict data retention policies and export controls that satisfy regulatory and compliance obligations" }
+        ],
+        footer: "Our differentiation in healthcare is architecture, not compliance branding. We provide the operational infrastructure that makes AI deployments safe, auditable, and reliable in regulated environments."
+      }
+    },
+    // Slide 8: Platform Compounding
+    {
+      type: 'compounding',
+      content: {
+        title: "FIC-Native Products: Platform Compounding",
+        products: [
+          {
+            name: "Loopt",
+            subtitle: "Marketing Operations",
+            items: [
+              "Data plane: Brand rules, creative assets, approval workflows, post history, performance metrics",
+              "Runtime: Generate → approve → schedule → post → verify → report in continuous loop",
+              "Control plane: Roles for creators, approvers, and publishers with audit of every publish action"
+            ],
+            color: "cyan"
+          },
+          {
+            name: "Boopsie",
+            subtitle: "Restaurant AI GM",
+            items: [
+              "Data plane: POS and QuickBooks integration capturing sales, labor, COGS, promotions, and operational decisions",
+              "Runtime: Daily and weekly operational cadence with alerts, recommended actions, and reconciliation loops",
+              "Control plane: Approval gates for high-risk actions like pricing changes, refunds, and vendor modifications"
+            ],
+            color: "purple"
+          }
+        ],
+        footer: "Platform compounding: Boopsie + Loopt creates a cross-domain flywheel where operations trigger marketing, and marketing outcomes feed back into operations intelligence."
+      }
+    },
+    // Slide 9: 90-Day Roadmap
+    {
+      type: 'roadmap',
+      content: {
+        title: "The Moat Test: 90-Day Engineering Roadmap",
+        intro: "We are building a defensive moat only if every client deployment includes these components. If a project is just \"chat + connectors + prompt,\" it's not FIC and carries platform risk.",
+        items: [
+          { num: "1", title: "FIC Standard Spec v1", desc: "Component boundaries, reference diagrams, required telemetry, and security baseline documentation" },
+          { num: "2", title: "Unified Event Schema", desc: "Standardized agent_event, tool_call, writeback_result, source_citation, and approval_event structures" },
+          { num: "3", title: "Reliability Library", desc: "Idempotency middleware, retry policy modules, and reconciliation job templates" },
+          { num: "4", title: "Evaluation Harness", desc: "Golden tests, retrieval evaluation, tool correctness assessment, and CI gating" },
+          { num: "5", title: "FIC Widget v1", desc: "Health monitoring, documentation, change logs, and support backed by real metrics and logs" }
+        ]
+      }
+    },
+    // Slide 10: Bottom Line
+    {
+      type: 'bottomline',
+      content: {
+        title: "Bottom Line",
+        main: "OpenAI, Anthropic, and Google can commoditize conversational assistants. They cannot commoditize the operational reality that companies need: owned, governed, reliable, measurable systems running inside their production environments.",
+        highlight: "FIC is defensible if we treat it as a platform with rigorous engineering standards—not a branding wrapper around commodity models."
+      }
+    }
+  ];
+
+  const nextModalSlide = () => {
+    if (modalSlide < modalSlides.length - 1) setModalSlide(modalSlide + 1);
+  };
+
+  const prevModalSlide = () => {
+    if (modalSlide > 0) setModalSlide(modalSlide - 1);
+  };
+
+  useEffect(() => {
+    if (!isOpen) {
+      setModalSlide(0);
+      return;
+    }
+    
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      } else if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextModalSlide();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevModalSlide();
+      }
+    };
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [isOpen, modalSlide, onClose]);
+
+  const renderSlideContent = (slide: typeof modalSlides[0]) => {
+    switch (slide.type) {
+      case 'title':
+        return (
+          <div className="flex flex-col items-center justify-center h-full text-center px-8">
+            <motion.span
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-xs md:text-sm font-medium text-cyan-400 uppercase tracking-wider mb-6"
+            >
+              <Cpu className="w-4 h-4" />
+              {slide.content.badge}
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+            >
+              Flywheel AI
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
+                {slide.content.title}
+              </span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-lg md:text-xl text-slate-400 max-w-3xl"
+            >
+              {slide.content.subtitle}
+            </motion.p>
+          </div>
+        );
+
+      case 'thesis':
+        return (
+          <div className="max-w-5xl mx-auto px-6 py-8">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl md:text-4xl font-bold text-white mb-8 text-center"
+            >
+              {slide.content.title}
+            </motion.h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {slide.content.sections.map((section: { heading: string; text: string; highlight: string }, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                  className={`bg-gradient-to-br ${i === 0 ? 'from-red-500/10 to-orange-500/10 border-red-500/30' : 'from-emerald-500/10 to-cyan-500/10 border-emerald-500/30'} border rounded-xl p-6`}
+                >
+                  <h3 className={`text-lg font-bold ${i === 0 ? 'text-red-400' : 'text-emerald-400'} mb-3`}>{section.heading}</h3>
+                  <p className="text-sm text-slate-300 mb-4">{section.text}</p>
+                  <p className="text-sm text-white font-medium bg-white/5 rounded-lg p-3 border-l-2 border-cyan-500">
+                    {section.highlight}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'architecture':
+        return (
+          <div className="max-w-6xl mx-auto px-6 py-6">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl md:text-3xl font-bold text-white mb-6 text-center"
+            >
+              {slide.content.title}
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {slide.content.planes.map((plane: { icon: React.ComponentType<{ className?: string }>; name: string; desc: string; color: string }, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                  className={`bg-gradient-to-br from-${plane.color}-500/10 to-${plane.color}-600/5 border border-${plane.color}-500/30 rounded-xl p-4`}
+                >
+                  <div className={`w-10 h-10 bg-${plane.color}-500/20 rounded-lg flex items-center justify-center mb-3 border border-${plane.color}-500/30`}>
+                    <plane.icon className={`w-5 h-5 text-${plane.color}-400`} />
+                  </div>
+                  <h3 className={`text-base font-bold text-${plane.color}-400 mb-2`}>{plane.name}</h3>
+                  <p className="text-xs text-slate-300">{plane.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'differentiator':
+        return (
+          <div className="max-w-5xl mx-auto px-6 py-6">
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-xs font-medium text-cyan-400 uppercase tracking-wider mb-4"
+            >
+              {slide.content.badge}
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl md:text-3xl font-bold text-white mb-4"
+            >
+              {slide.content.title}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              className="text-sm text-slate-400 mb-6"
+            >
+              {slide.content.intro}
+            </motion.p>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              {slide.content.items.map((item: { num: string; title: string; desc: string }, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.15 * i }}
+                  className="bg-white/5 border border-white/10 rounded-xl p-4 flex gap-4"
+                >
+                  <div className="text-2xl font-bold text-cyan-500/50">{item.num}</div>
+                  <div>
+                    <h4 className="font-bold text-white mb-1">{item.title}</h4>
+                    <p className="text-xs text-slate-400">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/30 rounded-xl p-4"
+            >
+              <p className="text-sm text-white font-medium">{slide.content.result}</p>
+            </motion.div>
+          </div>
+        );
+
+      case 'governance':
+        return (
+          <div className="max-w-5xl mx-auto px-6 py-6">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl md:text-3xl font-bold text-white mb-6 text-center"
+            >
+              {slide.content.title}
+            </motion.h2>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              {slide.content.columns.map((col: { heading: string; items: string[]; color: string }, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                  className={`bg-gradient-to-br from-${col.color}-500/10 to-${col.color}-600/5 border border-${col.color}-500/30 rounded-xl p-5`}
+                >
+                  <h3 className={`text-lg font-bold text-${col.color}-400 mb-4`}>{col.heading}</h3>
+                  <ul className="space-y-3">
+                    {col.items.map((item: string, j: number) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-slate-300">
+                        <CheckCircle className={`w-4 h-4 text-${col.color}-400 flex-shrink-0 mt-0.5`} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="bg-white/5 border border-white/10 rounded-xl p-4"
+            >
+              <p className="text-sm text-slate-300 text-center">{slide.content.footer}</p>
+            </motion.div>
+          </div>
+        );
+
+      case 'evaluation':
+        return (
+          <div className="max-w-5xl mx-auto px-6 py-6">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl md:text-3xl font-bold text-white mb-6 text-center"
+            >
+              {slide.content.title}
+            </motion.h2>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              {slide.content.items.map((item: { icon: React.ComponentType<{ className?: string }>; title: string; desc: string; color: string }, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                  className={`bg-gradient-to-br from-${item.color}-500/10 to-${item.color}-600/5 border border-${item.color}-500/30 rounded-xl p-5`}
+                >
+                  <div className={`w-10 h-10 bg-${item.color}-500/20 rounded-lg flex items-center justify-center mb-3 border border-${item.color}-500/30`}>
+                    <item.icon className={`w-5 h-5 text-${item.color}-400`} />
+                  </div>
+                  <h3 className={`text-base font-bold text-${item.color}-400 mb-2`}>{item.title}</h3>
+                  <p className="text-sm text-slate-300">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-xl p-4"
+            >
+              <p className="text-sm text-slate-300 text-center">{slide.content.footer}</p>
+            </motion.div>
+          </div>
+        );
+
+      case 'security':
+        return (
+          <div className="max-w-5xl mx-auto px-6 py-6">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl md:text-3xl font-bold text-white mb-6 text-center"
+            >
+              {slide.content.title}
+            </motion.h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 }}
+                className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-500/30 rounded-xl p-5"
+              >
+                <h3 className="text-lg font-bold text-red-400 mb-4 flex items-center gap-2">
+                  <AlertTriangle className="w-5 h-5" />
+                  Key Threats
+                </h3>
+                <ul className="space-y-2">
+                  {slide.content.threats.map((threat: string, i: number) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
+                      <X className="w-4 h-4 text-red-400 flex-shrink-0" />
+                      {threat}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                className="bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 border border-emerald-500/30 rounded-xl p-5"
+              >
+                <h3 className="text-lg font-bold text-emerald-400 mb-4 flex items-center gap-2">
+                  <Shield className="w-5 h-5" />
+                  FIC Mitigations
+                </h3>
+                <ul className="space-y-3">
+                  {slide.content.mitigations.map((item: { title: string; desc: string }, i: number) => (
+                    <li key={i} className="text-sm">
+                      <span className="text-white font-medium">{item.title}:</span>{' '}
+                      <span className="text-slate-400">{item.desc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+          </div>
+        );
+
+      case 'healthcare':
+        return (
+          <div className="max-w-5xl mx-auto px-6 py-6">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl md:text-3xl font-bold text-white mb-4 text-center flex items-center justify-center gap-3"
+            >
+              <HeartPulse className="w-8 h-8 text-pink-400" />
+              {slide.content.title}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              className="text-sm text-slate-400 mb-6 text-center max-w-3xl mx-auto"
+            >
+              {slide.content.intro}
+            </motion.p>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              {slide.content.items.map((item: { title: string; desc: string }, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                  className="bg-gradient-to-br from-pink-500/10 to-purple-500/10 border border-pink-500/30 rounded-xl p-4"
+                >
+                  <h4 className="font-bold text-pink-400 mb-2">{item.title}</h4>
+                  <p className="text-xs text-slate-300">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="bg-gradient-to-r from-pink-500/10 to-purple-500/10 border border-pink-500/30 rounded-xl p-4"
+            >
+              <p className="text-sm text-white font-medium text-center">{slide.content.footer}</p>
+            </motion.div>
+          </div>
+        );
+
+      case 'compounding':
+        return (
+          <div className="max-w-5xl mx-auto px-6 py-6">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl md:text-3xl font-bold text-white mb-6 text-center"
+            >
+              {slide.content.title}
+            </motion.h2>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              {slide.content.products.map((product: { name: string; subtitle: string; items: string[]; color: string }, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                  className={`bg-gradient-to-br from-${product.color}-500/10 to-${product.color}-600/5 border border-${product.color}-500/30 rounded-xl p-5`}
+                >
+                  <h3 className={`text-xl font-bold text-${product.color}-400 mb-1`}>{product.name}</h3>
+                  <p className="text-xs text-slate-500 mb-4">{product.subtitle}</p>
+                  <ul className="space-y-2">
+                    {product.items.map((item: string, j: number) => (
+                      <li key={j} className="text-xs text-slate-300 flex items-start gap-2">
+                        <CheckCircle className={`w-3 h-3 text-${product.color}-400 flex-shrink-0 mt-0.5`} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-xl p-4"
+            >
+              <p className="text-sm text-white font-medium text-center">{slide.content.footer}</p>
+            </motion.div>
+          </div>
+        );
+
+      case 'roadmap':
+        return (
+          <div className="max-w-5xl mx-auto px-6 py-6">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl md:text-3xl font-bold text-white mb-4 text-center"
+            >
+              {slide.content.title}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              className="text-sm text-slate-400 mb-6 text-center"
+            >
+              {slide.content.intro}
+            </motion.p>
+            <div className="space-y-3">
+              {slide.content.items.map((item: { num: string; title: string; desc: string }, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                  className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-start gap-4"
+                >
+                  <div className="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-cyan-500/30">
+                    <span className="text-sm font-bold text-cyan-400">{item.num}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white mb-1">{item.title}</h4>
+                    <p className="text-xs text-slate-400">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'bottomline':
+        return (
+          <div className="flex flex-col items-center justify-center h-full text-center px-8">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl md:text-4xl font-bold text-white mb-8"
+            >
+              {slide.content.title}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              className="text-lg md:text-xl text-slate-300 max-w-3xl mb-8"
+            >
+              {slide.content.main}
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-xl p-6 max-w-2xl"
+            >
+              <p className="text-lg text-white font-semibold">{slide.content.highlight}</p>
+            </motion.div>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          transition={{ duration: 0.3 }}
+          className="relative w-[95vw] h-[90vh] bg-gradient-to-br from-slate-900 via-slate-900 to-black border border-cyan-500/30 rounded-2xl overflow-hidden shadow-2xl shadow-cyan-500/20"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Close Button */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onClose}
+            className="absolute top-4 right-4 z-50 p-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-colors"
+          >
+            <X className="w-5 h-5 text-white" />
+          </motion.button>
+
+          {/* Slide Content */}
+          <div className="h-full overflow-y-auto pb-20">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={modalSlide}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.3 }}
+                className="h-full flex items-center justify-center"
+              >
+                {renderSlideContent(modalSlides[modalSlide])}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Navigation */}
+          <div className="absolute bottom-4 left-0 right-0 flex justify-center px-4">
+            <div className="bg-black/70 backdrop-blur-xl border border-cyan-400/60 rounded-full px-4 py-2 flex items-center gap-4">
+              <motion.button
+                onClick={prevModalSlide}
+                disabled={modalSlide === 0}
+                whileHover={{ scale: modalSlide === 0 ? 1 : 1.15 }}
+                whileTap={{ scale: modalSlide === 0 ? 1 : 0.9 }}
+                className={`p-1.5 rounded-full transition-all duration-300 ${
+                  modalSlide === 0
+                    ? 'text-slate-700 cursor-not-allowed opacity-40'
+                    : 'hover:bg-white/10 text-white'
+                }`}
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </motion.button>
+
+              <div className="flex gap-1.5 items-center">
+                {modalSlides.map((_, idx) => (
+                  <motion.button
+                    key={idx}
+                    onClick={() => setModalSlide(idx)}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`rounded-full transition-all duration-300 ${
+                      idx === modalSlide
+                        ? 'w-8 h-5 bg-cyan-400 shadow-lg shadow-cyan-500/50'
+                        : 'w-2 h-2 bg-slate-600 hover:bg-slate-500'
+                    } flex items-center justify-center`}
+                  >
+                    {idx === modalSlide && (
+                      <span className="text-[9px] font-bold text-slate-900">
+                        {modalSlide + 1}/{modalSlides.length}
+                      </span>
+                    )}
+                  </motion.button>
+                ))}
+              </div>
+
+              <motion.button
+                onClick={nextModalSlide}
+                disabled={modalSlide === modalSlides.length - 1}
+                whileHover={{ scale: modalSlide === modalSlides.length - 1 ? 1 : 1.15 }}
+                whileTap={{ scale: modalSlide === modalSlides.length - 1 ? 1 : 0.9 }}
+                className={`p-1.5 rounded-full transition-all duration-300 ${
+                  modalSlide === modalSlides.length - 1
+                    ? 'text-slate-700 cursor-not-allowed opacity-40'
+                    : 'bg-cyan-600 hover:bg-cyan-500 text-white shadow-lg shadow-cyan-500/30'
+                }`}
+              >
+                <ChevronRight className="w-5 h-5" />
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
 // Main Component
 const FWAIPPresentation: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showTechnicalModal, setShowTechnicalModal] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
 
@@ -3218,6 +4042,9 @@ const FWAIPPresentation: React.FC = () => {
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
+      // Don't handle navigation if modal is open
+      if (showTechnicalModal) return;
+      
       if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault();
         nextSlide();
@@ -3228,7 +4055,7 @@ const FWAIPPresentation: React.FC = () => {
     };
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [currentSlide]);
+  }, [currentSlide, showTechnicalModal]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -3271,10 +4098,20 @@ const FWAIPPresentation: React.FC = () => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0"
           >
-            <SlideComponent isActive={idx === currentSlide} slideIndex={idx} />
+            <SlideComponent 
+              isActive={idx === currentSlide} 
+              slideIndex={idx} 
+              onOpenTechnicalModal={SlideComponent === SlideImprovement ? () => setShowTechnicalModal(true) : undefined}
+            />
           </motion.div>
         ))}
       </div>
+
+      {/* Technical Deep Dive Modal */}
+      <TechnicalDeepDiveModal 
+        isOpen={showTechnicalModal} 
+        onClose={() => setShowTechnicalModal(false)} 
+      />
 
 
       {/* Enhanced Navigation */}
