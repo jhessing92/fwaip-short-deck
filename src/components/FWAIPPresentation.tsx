@@ -147,19 +147,20 @@ const slides = [
   { id: 21, title: "Lowe Law" },
   { id: 22, title: "Childcare Services" },
   { id: 23, title: "" },
-  { id: 24, title: "AI Governance" },
-  { id: 25, title: "You Own It" },
-  { id: 26, title: "Built for Production" },
-  { id: 27, title: "It Gets Smarter" },
-  { id: 28, title: "" },
-  { id: 29, title: "Client Journey" },
-  { id: 30, title: "Sales Process" },
-  { id: 31, title: "Pricing Philosophy" },
-  { id: 32, title: "" },
-  { id: 33, title: "Client Patterns" },
-  { id: 34, title: "Success Metrics" },
-  { id: 35, title: "Why We Compound" },
-  { id: 36, title: "Let's Build Together" }
+  { id: 24, title: "" },
+  { id: 25, title: "AI Governance" },
+  { id: 26, title: "You Own It" },
+  { id: 27, title: "Built for Production" },
+  { id: 28, title: "It Gets Smarter" },
+  { id: 29, title: "" },
+  { id: 30, title: "Client Journey" },
+  { id: 31, title: "Sales Process" },
+  { id: 32, title: "Pricing Philosophy" },
+  { id: 33, title: "" },
+  { id: 34, title: "Client Patterns" },
+  { id: 35, title: "Success Metrics" },
+  { id: 36, title: "Why We Compound" },
+  { id: 37, title: "Let's Build Together" }
 ];
 
 // Slide 1 - Hero
@@ -2136,6 +2137,32 @@ const Slide18: React.FC<SlideProps> = () => {
   );
 };
 
+// Transition: After Case Studies
+const TransitionAfterCaseStudies: React.FC<SlideProps> = () => {
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-center justify-center px-3 md:px-6">
+      <div className="max-w-4xl mx-auto w-full text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
+        >
+          Now you've seen what we build.
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-xl sm:text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 font-semibold"
+        >
+          Here's what makes it different.
+        </motion.p>
+      </div>
+    </div>
+  );
+};
+
 // Transition: What Makes Us Different
 const TransitionDifferent: React.FC<SlideProps> = () => {
   return (
@@ -4075,7 +4102,7 @@ const FWAIPPresentation: React.FC = () => {
     touchStartY.current = null;
   };
 
-  const SlideComponents = [Slide1, TransitionClear, Slide2, Slide3, Slide4, Slide5, Slide6, TransitionROI, Slide7, Slide8, Slide9, TransitionTeam, Slide10, TransitionCaseStudies, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17, Slide18, TransitionDifferent, SlideAIGovernance, SlideOwnership, SlideProduction, SlideImprovement, Slide19, Slide20, Slide21, Slide22, TransitionSuccess, SlideClientPatterns, SlideSuccessMetrics, SlideCompounds, Slide23];
+  const SlideComponents = [Slide1, TransitionClear, Slide2, Slide3, Slide4, Slide5, Slide6, TransitionROI, Slide7, Slide8, Slide9, TransitionTeam, Slide10, TransitionCaseStudies, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17, Slide18, TransitionAfterCaseStudies, TransitionDifferent, SlideAIGovernance, SlideOwnership, SlideProduction, SlideImprovement, Slide19, Slide20, Slide21, Slide22, TransitionSuccess, SlideClientPatterns, SlideSuccessMetrics, SlideCompounds, Slide23];
 
   return (
     <div 
