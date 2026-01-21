@@ -10,7 +10,6 @@ plugins = []
 publish = "/Users/jonathanhessing/Desktop/Cursor Projects/fwaip short deck/dist"
 publishOrigin = "config"
 commandOrigin = "config"
-base = "/Users/jonathanhessing/Desktop/Cursor Projects/fwaip short deck"
 command = "npm run build"
 
 [build.environment]
