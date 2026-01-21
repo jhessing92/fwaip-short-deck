@@ -2453,15 +2453,15 @@ const SlideImprovement: React.FC<SlideProps> = ({ onOpenTechnicalModal }) => {
   ];
 
   return (
-    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-6 md:pt-4 pb-16 md:pb-6 overflow-y-auto">
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-center justify-center px-3 md:px-6 pb-16 md:pb-6">
       <div className="max-w-5xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-6"
+          className="text-center mb-4"
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-xs md:text-sm font-medium text-emerald-400 uppercase tracking-wider mb-3">
+          <span className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-xs md:text-sm font-medium text-emerald-400 uppercase tracking-wider mb-2">
             <TrendingUp className="w-3 h-3" />
             Technical Advantage
           </span>
@@ -2470,20 +2470,20 @@ const SlideImprovement: React.FC<SlideProps> = ({ onOpenTechnicalModal }) => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
           {pillars.map((pillar, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
-              className={`bg-gradient-to-br from-${pillar.color}-500/10 to-${pillar.color}-600/5 border border-${pillar.color}-500/30 rounded-xl p-5 text-center`}
+              className={`bg-gradient-to-br from-${pillar.color}-500/10 to-${pillar.color}-600/5 border border-${pillar.color}-500/30 rounded-xl p-4 text-center`}
             >
-              <div className={`w-12 h-12 bg-${pillar.color}-500/20 rounded-xl flex items-center justify-center mx-auto mb-3 border border-${pillar.color}-500/30`}>
-                <pillar.icon className={`w-6 h-6 text-${pillar.color}-400`} />
+              <div className={`w-10 h-10 bg-${pillar.color}-500/20 rounded-xl flex items-center justify-center mx-auto mb-2 border border-${pillar.color}-500/30`}>
+                <pillar.icon className={`w-5 h-5 text-${pillar.color}-400`} />
               </div>
-              <h3 className={`text-lg font-bold text-${pillar.color}-400 mb-2`}>{pillar.title}</h3>
-              <p className="text-sm text-slate-300">{pillar.desc}</p>
+              <h3 className={`text-base font-bold text-${pillar.color}-400 mb-1`}>{pillar.title}</h3>
+              <p className="text-xs text-slate-300">{pillar.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -2492,9 +2492,9 @@ const SlideImprovement: React.FC<SlideProps> = ({ onOpenTechnicalModal }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/30 rounded-xl p-5"
+          className="bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/30 rounded-xl p-4 mb-4"
         >
-          <p className="text-base md:text-lg text-slate-300 text-center">
+          <p className="text-sm md:text-base text-slate-300 text-center">
             We treat AI like infrastructure — <span className="text-white font-semibold">tested, versioned, monitored.</span>
           </p>
         </motion.div>
@@ -2504,13 +2504,13 @@ const SlideImprovement: React.FC<SlideProps> = ({ onOpenTechnicalModal }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="text-center mt-6"
+          className="text-center"
         >
           <motion.button
             onClick={onOpenTechnicalModal}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 hover:from-cyan-500/30 hover:to-purple-500/30 border border-cyan-500/40 hover:border-cyan-400/60 rounded-xl text-white font-medium transition-all duration-300 group"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 hover:from-cyan-500/30 hover:to-purple-500/30 border border-cyan-500/40 hover:border-cyan-400/60 rounded-xl text-white font-medium transition-all duration-300 group"
           >
             <FileText className="w-4 h-4 text-cyan-400" />
             <span>Dive Deeper into Technical</span>
