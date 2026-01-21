@@ -5,7 +5,8 @@ import {
   Users, CheckCircle, Building, Zap,
   Rocket, BarChart3, AlertCircle, Target, Database,
   ShoppingCart, Sparkles, Package, Clock,
-  Lock, Gauge, Layers, Headphones, Award, X, ArrowRight, ExternalLink
+  Lock, Gauge, Layers, Headphones, Award, X, ArrowRight, ExternalLink,
+  Shield, Eye, FileText
 } from 'lucide-react';
 
 interface SlideProps {
@@ -125,31 +126,6 @@ const ParallaxBackground = ({ slideIndex }: { slideIndex: number }) => {
   );
 };
 
-// Navigation Helper Component
-const NavigationHint = ({ currentSlide, totalSlides }: { currentSlide: number, totalSlides: number }) => {
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 5000);
-    return () => clearTimeout(timer);
-  }, [currentSlide]);
-
-  if (!visible || currentSlide === totalSlides - 1) return null;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: [0.4, 0.8, 0.4], y: [0, 5, 0] }}
-      exit={{ opacity: 0 }}
-      transition={{ repeat: Infinity, duration: 2 }}
-      className="fixed bottom-16 md:bottom-24 left-1/2 transform -translate-x-1/2 z-40 flex flex-col items-center gap-1 hidden sm:flex"
-    >
-      <span className="text-xs text-slate-500 font-medium">Use arrow keys or click</span>
-      <ChevronDown className="w-4 h-4 text-cyan-400" />
-    </motion.div>
-  );
-};
-
 const slides = [
   { id: 1, title: "Who We Are" },
   { id: 2, title: "" },
@@ -174,10 +150,19 @@ const slides = [
   { id: 21, title: "Lowe Law" },
   { id: 22, title: "Childcare Services" },
   { id: 23, title: "" },
-  { id: 24, title: "Client Journey" },
-  { id: 25, title: "Sales Process" },
-  { id: 26, title: "Pricing Philosophy" },
-  { id: 27, title: "Let's Build Together" }
+  { id: 24, title: "AI Governance" },
+  { id: 25, title: "You Own It" },
+  { id: 26, title: "Built for Production" },
+  { id: 27, title: "It Gets Smarter" },
+  { id: 28, title: "" },
+  { id: 29, title: "Client Journey" },
+  { id: 30, title: "Sales Process" },
+  { id: 31, title: "Pricing Philosophy" },
+  { id: 32, title: "" },
+  { id: 33, title: "Client Patterns" },
+  { id: 34, title: "Success Metrics" },
+  { id: 35, title: "Why We Compound" },
+  { id: 36, title: "Let's Build Together" }
 ];
 
 // Slide 1 - Hero
@@ -1428,6 +1413,19 @@ const Slide11: React.FC<SlideProps> = () => {
             </div>
           </motion.div>
         </div>
+
+        <motion.a
+          href="https://staging.d2oouzph28ekuq.amplifyapp.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+          className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-lg text-purple-400 text-sm font-medium hover:bg-purple-500/30 transition-colors"
+        >
+          <ExternalLink className="w-4 h-4" />
+          View Live Tool
+        </motion.a>
       </div>
     </div>
   );
@@ -1529,6 +1527,19 @@ const Slide12: React.FC<SlideProps> = () => {
             </div>
           </motion.div>
         </div>
+
+        <motion.a
+          href="https://curehire.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+          className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-orange-500/20 border border-orange-500/30 rounded-lg text-orange-400 text-sm font-medium hover:bg-orange-500/30 transition-colors"
+        >
+          <ExternalLink className="w-4 h-4" />
+          View Live Tool
+        </motion.a>
       </div>
     </div>
   );
@@ -1613,6 +1624,19 @@ const Slide13: React.FC<SlideProps> = () => {
             </div>
           </motion.div>
         </div>
+
+        <motion.a
+          href="https://plan.shoofly.ai/dashboard"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+          className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400 text-sm font-medium hover:bg-green-500/30 transition-colors"
+        >
+          <ExternalLink className="w-4 h-4" />
+          View Live Tool
+        </motion.a>
       </div>
     </div>
   );
@@ -1786,6 +1810,19 @@ const Slide15: React.FC<SlideProps> = () => {
             </div>
           </motion.div>
         </div>
+
+        <motion.a
+          href="https://ccsd.shooflyai.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+          className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-lg text-purple-400 text-sm font-medium hover:bg-purple-500/30 transition-colors"
+        >
+          <ExternalLink className="w-4 h-4" />
+          View Live Tool
+        </motion.a>
       </div>
     </div>
   );
@@ -1997,6 +2034,19 @@ const Slide17: React.FC<SlideProps> = () => {
             </div>
           </motion.div>
         </div>
+
+        <motion.a
+          href="https://loopt.shooflyai.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+          className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-lg text-indigo-400 text-sm font-medium hover:bg-indigo-500/30 transition-colors"
+        >
+          <ExternalLink className="w-4 h-4" />
+          View Live Tool
+        </motion.a>
       </div>
     </div>
   );
@@ -2071,6 +2121,386 @@ const Slide18: React.FC<SlideProps> = () => {
             </div>
           </motion.div>
         </div>
+
+        <motion.a
+          href="https://childcaretaxcredit2026.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-amber-500/20 border border-amber-500/30 rounded-lg text-amber-400 text-sm font-medium hover:bg-amber-500/30 transition-colors"
+        >
+          <ExternalLink className="w-4 h-4" />
+          View Live Tool
+        </motion.a>
+      </div>
+    </div>
+  );
+};
+
+// Transition: What Makes Us Different
+const TransitionDifferent: React.FC<SlideProps> = () => {
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-center justify-center px-3 md:px-6">
+      <div className="max-w-5xl mx-auto w-full text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+        >
+          What makes us different?
+        </motion.h2>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-xl p-4 text-left">
+              <div className="text-2xl md:text-3xl font-bold text-cyan-400 mb-2">35%</div>
+              <p className="text-sm text-slate-300">
+                of our 2025 revenue came from <span className="text-white font-medium">augmenting technical teams</span> — helping ship AI-enabled hardware, multi-tenant platforms, and agentic SaaS. We've served as CTO, Architect, and Engineer alongside technical leads.
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-xl p-4 text-left">
+              <div className="text-2xl md:text-3xl font-bold text-purple-400 mb-2">65%</div>
+              <p className="text-sm text-slate-300">
+                of our work involves <span className="text-white font-medium">managing the full build</span> — from product vision to architecture to execution to deployment to ongoing maintenance and support.
+              </p>
+            </div>
+          </div>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="text-base md:text-lg text-slate-300 mb-4"
+          >
+            We welcome any dynamic — <span className="text-white font-medium">Fractional CTO and dev team</span>, or playing the role of <span className="text-white font-medium">Architect or AI-enabled engineer</span> for faster delivery and higher quality.
+          </motion.p>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="text-lg md:text-xl text-slate-400 italic"
+          >
+            But it all starts with how we build...
+          </motion.p>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+// Slide: AI Governance
+const SlideAIGovernance: React.FC<SlideProps> = () => {
+  const principles = [
+    {
+      icon: Shield,
+      title: "Human-in-the-Loop",
+      desc: "Critical decisions always require human approval before execution",
+      color: "cyan"
+    },
+    {
+      icon: Eye,
+      title: "Full Transparency",
+      desc: "Complete visibility into how AI makes recommendations and decisions",
+      color: "purple"
+    },
+    {
+      icon: FileText,
+      title: "Audit Trails",
+      desc: "Every AI action logged with timestamps, inputs, outputs, and reasoning",
+      color: "emerald"
+    },
+    {
+      icon: Users,
+      title: "Role-Based Access",
+      desc: "Granular permissions ensure the right people control the right AI capabilities",
+      color: "amber"
+    }
+  ];
+
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-6 md:pt-4 pb-16 md:pb-6 overflow-y-auto">
+      <div className="max-w-5xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-6"
+        >
+          <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-xs md:text-sm font-medium text-purple-400 uppercase tracking-wider mb-3">
+            <Shield className="w-3 h-3" />
+            Responsible AI
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            AI Governance <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-500">Built In</span>
+          </h2>
+          <p className="text-slate-400 mt-3 text-sm md:text-base max-w-2xl mx-auto">
+            Every system we build includes enterprise-grade governance from day one
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          {principles.map((principle, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
+              className={`bg-gradient-to-br from-${principle.color}-500/10 to-${principle.color}-600/5 border border-${principle.color}-500/30 rounded-xl p-5`}
+            >
+              <div className="flex items-start gap-4">
+                <div className={`w-10 h-10 bg-${principle.color}-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-${principle.color}-500/30`}>
+                  <principle.icon className={`w-5 h-5 text-${principle.color}-400`} />
+                </div>
+                <div>
+                  <h3 className={`text-lg font-bold text-${principle.color}-400 mb-1`}>{principle.title}</h3>
+                  <p className="text-sm text-slate-300">{principle.desc}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/30 rounded-xl p-5"
+        >
+          <p className="text-base md:text-lg text-slate-300 text-center">
+            <span className="text-white font-semibold">AI should augment human judgment, not replace it.</span> Our governance framework ensures your team stays in control.
+          </p>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+// Slide: You Own It (Data Ownership Advantage)
+const SlideOwnership: React.FC<SlideProps> = () => {
+  const pillars = [
+    {
+      icon: Lock,
+      title: "No Platform Lock-In",
+      desc: "Switch CRMs, ERPs, or tools without losing AI memory",
+      color: "cyan"
+    },
+    {
+      icon: Database,
+      title: "Portable Intelligence",
+      desc: "Historical context travels with you, not trapped in vendors",
+      color: "purple"
+    },
+    {
+      icon: Layers,
+      title: "Your System of Record",
+      desc: "Built on our Sovereign Data Layer — a proprietary architecture that keeps your data yours",
+      color: "emerald"
+    }
+  ];
+
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-6 md:pt-4 pb-16 md:pb-6 overflow-y-auto">
+      <div className="max-w-5xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-6"
+        >
+          <span className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-xs md:text-sm font-medium text-cyan-400 uppercase tracking-wider mb-3">
+            <Lock className="w-3 h-3" />
+            Technical Advantage
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            You Own It. <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Forever.</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          {pillars.map((pillar, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
+              className={`bg-gradient-to-br from-${pillar.color}-500/10 to-${pillar.color}-600/5 border border-${pillar.color}-500/30 rounded-xl p-5 text-center`}
+            >
+              <div className={`w-12 h-12 bg-${pillar.color}-500/20 rounded-xl flex items-center justify-center mx-auto mb-3 border border-${pillar.color}-500/30`}>
+                <pillar.icon className={`w-6 h-6 text-${pillar.color}-400`} />
+              </div>
+              <h3 className={`text-lg font-bold text-${pillar.color}-400 mb-2`}>{pillar.title}</h3>
+              <p className="text-sm text-slate-300">{pillar.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-xl p-5"
+        >
+          <p className="text-base md:text-lg text-slate-300 text-center">
+            Your clients' AI gets smarter over time — <span className="text-white font-semibold">and they own every bit of it.</span>
+          </p>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+// Slide: Built for Production (Governance & Reliability)
+const SlideProduction: React.FC<SlideProps> = () => {
+  const pillars = [
+    {
+      icon: Building,
+      title: "Enterprise Security",
+      desc: "Tenant isolation, permission-mapped access, approval gates",
+      color: "purple"
+    },
+    {
+      icon: CheckCircle,
+      title: "Compliance Ready",
+      desc: "Exportable audit trails, immutable logs, HIPAA-capable",
+      color: "emerald"
+    },
+    {
+      icon: Zap,
+      title: "Reliability Guarantees",
+      desc: "Retry logic, reconciliation, dead-letter handling",
+      color: "cyan"
+    }
+  ];
+
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-6 md:pt-4 pb-16 md:pb-6 overflow-y-auto">
+      <div className="max-w-5xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-6"
+        >
+          <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-xs md:text-sm font-medium text-purple-400 uppercase tracking-wider mb-3">
+            <Building className="w-3 h-3" />
+            Technical Advantage
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            Built for Production. <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Not Just Demos.</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          {pillars.map((pillar, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
+              className={`bg-gradient-to-br from-${pillar.color}-500/10 to-${pillar.color}-600/5 border border-${pillar.color}-500/30 rounded-xl p-5 text-center`}
+            >
+              <div className={`w-12 h-12 bg-${pillar.color}-500/20 rounded-xl flex items-center justify-center mx-auto mb-3 border border-${pillar.color}-500/30`}>
+                <pillar.icon className={`w-6 h-6 text-${pillar.color}-400`} />
+              </div>
+              <h3 className={`text-lg font-bold text-${pillar.color}-400 mb-2`}>{pillar.title}</h3>
+              <p className="text-sm text-slate-300">{pillar.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-xl p-5"
+        >
+          <p className="text-base md:text-lg text-slate-300 text-center">
+            Chat platforms give you conversations. <span className="text-white font-semibold">We give you operational guarantees.</span>
+          </p>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+// Slide: It Gets Smarter (Evaluation Discipline)
+const SlideImprovement: React.FC<SlideProps> = () => {
+  const pillars = [
+    {
+      icon: Target,
+      title: "Quality Gates",
+      desc: "Can't deploy without passing evaluation thresholds",
+      color: "emerald"
+    },
+    {
+      icon: BarChart3,
+      title: "Golden Test Suites",
+      desc: "Per-workflow test cases catch regressions before clients do",
+      color: "cyan"
+    },
+    {
+      icon: TrendingUp,
+      title: "Feedback Loops",
+      desc: "Top errors feed directly into product roadmap",
+      color: "purple"
+    }
+  ];
+
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-6 md:pt-4 pb-16 md:pb-6 overflow-y-auto">
+      <div className="max-w-5xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-6"
+        >
+          <span className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-xs md:text-sm font-medium text-emerald-400 uppercase tracking-wider mb-3">
+            <TrendingUp className="w-3 h-3" />
+            Technical Advantage
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            It Gets Smarter. <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">Measurably.</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          {pillars.map((pillar, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
+              className={`bg-gradient-to-br from-${pillar.color}-500/10 to-${pillar.color}-600/5 border border-${pillar.color}-500/30 rounded-xl p-5 text-center`}
+            >
+              <div className={`w-12 h-12 bg-${pillar.color}-500/20 rounded-xl flex items-center justify-center mx-auto mb-3 border border-${pillar.color}-500/30`}>
+                <pillar.icon className={`w-6 h-6 text-${pillar.color}-400`} />
+              </div>
+              <h3 className={`text-lg font-bold text-${pillar.color}-400 mb-2`}>{pillar.title}</h3>
+              <p className="text-sm text-slate-300">{pillar.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/30 rounded-xl p-5"
+        >
+          <p className="text-base md:text-lg text-slate-300 text-center">
+            We treat AI like infrastructure — <span className="text-white font-semibold">tested, versioned, monitored.</span>
+          </p>
+        </motion.div>
       </div>
     </div>
   );
@@ -2108,80 +2538,89 @@ const Slide19: React.FC<SlideProps> = () => {
   );
 };
 
-// Slide 20 - Client Journey
+// Slide 20 - Client Journey (Horizontal Timeline)
 const Slide20: React.FC<SlideProps> = () => {
   const journeySteps = [
     {
       num: "01",
-      title: "Assessment / Wedge",
-      desc: "Entry points include automation audits, strategic workshops, intelligence layer diagnostics, or proof-of-concept builds.",
+      title: "Assess",
+      desc: "Automation audits, workshops, or proof-of-concept",
       color: "cyan"
     },
     {
       num: "02",
       title: "Pilot",
-      desc: "Launch with a single AI Employee, AI-enabled tool, or narrow agentic system to prove value quickly.",
+      desc: "Single AI Employee or narrow agentic system",
       color: "purple"
     },
     {
       num: "03",
       title: "Expand",
-      desc: "Scale through additional AI employees, shared memory systems, and cross-workflow orchestration.",
+      desc: "Additional AI agents, shared memory, orchestration",
       color: "emerald"
     },
     {
       num: "04",
       title: "Operate",
-      desc: "Deploy full Command Center, migrate to owned infrastructure, and establish long-term scalable operations.",
+      desc: "Full Command Center, owned infrastructure",
       color: "blue"
     }
   ];
 
   return (
-    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-6 md:pt-4 pb-16 md:pb-6 overflow-y-auto">
-      <div className="max-w-5xl mx-auto w-full">
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-center justify-center px-3 md:px-6">
+      <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-4 md:mb-6"
+          className="text-center mb-6 md:mb-8"
         >
           <span className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-xs md:text-sm font-medium text-cyan-400 uppercase tracking-wider mb-3">
             <Users className="w-3 h-3" />
             Client Journey
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-            How We Sell: <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Start → Pilot → Expand</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Start → Pilot → Expand → Operate</span>
           </h2>
-          <p className="text-sm md:text-base text-slate-400">
-            Your clients can start anywhere, but the path to value is consistent and modular. Nothing requires a rewrite.
-          </p>
         </motion.div>
 
-        <div className="space-y-4">
-          {journeySteps.map((step, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
-              className={`border-l-2 border-${step.color}-500/50 pl-4 py-2`}
-            >
-              <div className="text-xs text-slate-500 mb-1">{step.num}</div>
-              <h3 className={`text-lg font-bold text-${step.color}-400 mb-1`}>{step.title}</h3>
-              <p className="text-sm text-slate-300">{step.desc}</p>
-            </motion.div>
-          ))}
+        {/* Horizontal Timeline */}
+        <div className="relative mb-6">
+          {/* Connection Line */}
+          <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-500/50 via-purple-500/50 to-blue-500/50" />
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {journeySteps.map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
+                className="relative"
+              >
+                {/* Timeline Node */}
+                <div className={`hidden md:flex w-4 h-4 rounded-full bg-${step.color}-500 border-2 border-slate-900 mx-auto mb-4 relative z-10`} />
+                
+                {/* Card */}
+                <div className={`bg-gradient-to-br from-${step.color}-500/10 to-${step.color}-600/5 border border-${step.color}-500/30 rounded-xl p-3 md:p-4 text-center h-full`}>
+                  <div className={`text-xs font-bold text-${step.color}-500/60 mb-1`}>{step.num}</div>
+                  <h3 className={`text-base md:text-lg font-bold text-${step.color}-400 mb-1`}>{step.title}</h3>
+                  <p className="text-xs text-slate-400">{step.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
-          className="mt-5 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-xl p-4"
+          className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-xl p-4"
         >
-          <p className="text-sm text-slate-300 text-center">
-            <span className="text-white font-semibold">Partner Advantage:</span> This is your repeatable playbook. You own the client relationship — we power the delivery.
+          <p className="text-sm md:text-base text-slate-300 text-center">
+            <span className="text-white font-semibold">Modular by design:</span> Clients start anywhere. Every phase builds on the last. Nothing requires a rewrite.
           </p>
         </motion.div>
       </div>
@@ -2189,112 +2628,82 @@ const Slide20: React.FC<SlideProps> = () => {
   );
 };
 
-// Slide 21 - Sales Process & Timeline
+// Slide 21 - Sales Process & Timeline (Compact)
 const Slide21: React.FC<SlideProps> = () => {
   const phases = [
-    {
-      num: "01",
-      title: "Phase 1: Discovery (Week 1)",
-      items: ["Initial conversation (30-second talk track)", "Workflow identification", "Pain/value qualification", "Stakeholder mapping"],
-      output: "Qualified opportunity or polite pass",
-      color: "cyan"
-    },
-    {
-      num: "02",
-      title: "Phase 2: Scoping (Week 2)",
-      items: ["Workflow deep-dive session", "ROI modeling workshop", "Technical feasibility review", "Proposal development"],
-      output: "Signed 30-Day Proof Sprint agreement",
-      color: "purple"
-    },
-    {
-      num: "03",
-      title: "Phase 3: Proof Sprint (Days 1-30)",
-      items: ["Week 1: Workflow mapping & design", "Week 2-3: Build & test", "Week 4: Deploy & measure", "Day 30: ROI review"],
-      output: "Working system + measured ROI",
-      color: "emerald"
-    },
-    {
-      num: "04",
-      title: "Phase 4: Expansion (Week 5-6)",
-      items: ["ROI validation meeting", "Expansion roadmap planning", "Additional workflow prioritization", "Agentic OS proposal (if applicable)"],
-      output: "Expansion contract or successful exit",
-      color: "blue"
-    }
+    { title: "Discovery", time: "Week 1", output: "Qualified opportunity", color: "cyan" },
+    { title: "Scoping", time: "Week 2", output: "Signed agreement", color: "purple" },
+    { title: "Proof Sprint", time: "Days 1-30", output: "Working system + ROI", color: "emerald" },
+    { title: "Expansion", time: "Week 5-6", output: "Expansion contract", color: "blue" }
   ];
 
   return (
-    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-6 md:pt-4 pb-16 md:pb-6 overflow-y-auto">
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-center justify-center px-3 md:px-6">
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-4"
+          className="text-center mb-5"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1">
             Sales Process & Timeline
           </h2>
-          <p className="text-sm md:text-base text-slate-400">From First Contact to Production</p>
+          <p className="text-sm text-slate-400">First Contact to Production in 6 Weeks</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          {phases.map((phase, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + (i * 0.1), duration: 0.5 }}
-              className={`bg-gradient-to-br from-${phase.color}-500/5 to-${phase.color}-600/5 border border-${phase.color}-500/20 rounded-xl p-4`}
-            >
-              <div className="text-xs text-slate-500 mb-1">{phase.num}</div>
-              <h3 className={`text-base font-bold text-${phase.color}-400 mb-2`}>{phase.title}</h3>
-              <ul className="space-y-1 mb-3">
-                {phase.items.map((item, j) => (
-                  <li key={j} className="text-xs text-slate-400 flex items-start gap-2">
-                    <span className="text-slate-600">•</span> {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-xs text-slate-500">
-                <span className="text-slate-400 font-medium">Key output:</span> {phase.output}
-              </p>
-            </motion.div>
-          ))}
+        {/* Horizontal Timeline */}
+        <div className="relative mb-5">
+          <div className="hidden md:block absolute top-6 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-cyan-500/50 via-purple-500/50 to-blue-500/50" />
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {phases.map((phase, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + (i * 0.1), duration: 0.5 }}
+                className="relative text-center"
+              >
+                <div className={`hidden md:flex w-3 h-3 rounded-full bg-${phase.color}-500 mx-auto mb-3 relative z-10`} />
+                <div className={`bg-gradient-to-br from-${phase.color}-500/10 to-${phase.color}-600/5 border border-${phase.color}-500/30 rounded-xl p-3`}>
+                  <div className={`text-xs font-medium text-${phase.color}-500/70 mb-1`}>{phase.time}</div>
+                  <h3 className={`text-sm md:text-base font-bold text-${phase.color}-400 mb-1`}>{phase.title}</h3>
+                  <p className="text-xs text-slate-400">{phase.output}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        {/* Ownership Split */}
+        <div className="grid grid-cols-2 gap-3 mb-4">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-xl p-4"
+            className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-xl p-3"
           >
-            <h3 className="text-base font-bold text-cyan-400 mb-2">Partner Owns</h3>
-            <ul className="space-y-1 text-xs text-slate-300">
-              {["Discovery & qualification", "ROI modeling", "Proposal & contracting", "Expansion planning", "Client relationship"].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <CheckCircle className="w-3 h-3 text-cyan-400 mt-0.5 flex-shrink-0" />
-                  {item}
-                </li>
+            <h3 className="text-sm font-bold text-cyan-400 mb-2">Partner Owns</h3>
+            <div className="flex flex-wrap gap-1">
+              {["Discovery", "ROI modeling", "Contracting", "Client relationship"].map((item, i) => (
+                <span key={i} className="text-xs text-slate-300 bg-cyan-500/10 px-2 py-0.5 rounded">{item}</span>
               ))}
-            </ul>
+            </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
-            className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-xl p-4"
+            className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-xl p-3"
           >
-            <h3 className="text-base font-bold text-purple-400 mb-2">Flywheel Owns</h3>
-            <ul className="space-y-1 text-xs text-slate-300">
-              {["Technical scoping", "Proof sprint execution", "System deployment", "ROI measurement", "Knowledge transfer"].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <CheckCircle className="w-3 h-3 text-purple-400 mt-0.5 flex-shrink-0" />
-                  {item}
-                </li>
+            <h3 className="text-sm font-bold text-purple-400 mb-2">Flywheel Owns</h3>
+            <div className="flex flex-wrap gap-1">
+              {["Technical scoping", "Build & deploy", "ROI measurement", "Knowledge transfer"].map((item, i) => (
+                <span key={i} className="text-xs text-slate-300 bg-purple-500/10 px-2 py-0.5 rounded">{item}</span>
               ))}
-            </ul>
+            </div>
           </motion.div>
         </div>
 
@@ -2302,16 +2711,11 @@ const Slide21: React.FC<SlideProps> = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
-          className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4"
+          className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-3"
         >
-          <div className="flex items-start gap-3">
-            <div className="w-5 h-5 rounded border border-blue-500/50 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <CheckCircle className="w-3 h-3 text-blue-400" />
-            </div>
-            <p className="text-xs text-slate-300">
-              <span className="text-white font-semibold">Critical Success Factor:</span> Sales and delivery must be aligned on ROI expectations before the proof sprint starts. No surprises on Day 30.
-            </p>
-          </div>
+          <p className="text-sm text-slate-300 text-center">
+            <span className="text-white font-semibold">Key:</span> Align on ROI expectations before proof sprint. No surprises on Day 30.
+          </p>
         </motion.div>
       </div>
     </div>
@@ -2422,6 +2826,278 @@ const Slide22: React.FC<SlideProps> = () => {
               <span className="text-white font-semibold">Pricing Defense:</span> If a client pushes back on price, return to ROI. If the ROI doesn't justify the price, we're solving the wrong problem.
             </p>
           </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+// Transition: What Success Feels Like
+const TransitionSuccess: React.FC<SlideProps> = () => {
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-center justify-center px-3 md:px-6">
+      <div className="max-w-4xl mx-auto w-full text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white"
+        >
+          What success feels like.
+        </motion.h2>
+      </div>
+    </div>
+  );
+};
+
+// Slide: Client Patterns - What Keeps Showing Up
+const SlideClientPatterns: React.FC<SlideProps> = () => {
+  const patterns = [
+    {
+      title: "Workflows Beat Tools",
+      desc: "Clients succeed when we automate complete processes, not when we provide point solutions."
+    },
+    {
+      title: "Ownership Beats Adoption",
+      desc: "Systems with clear accountability outperform tools that require constant evangelism."
+    },
+    {
+      title: "Trust Over Novelty",
+      desc: "Compliance and reliability matter more than cutting-edge features for sustained success."
+    },
+    {
+      title: "Decision + Action",
+      desc: "AI succeeds when it owns both decisions and actions, not just recommendations."
+    },
+    {
+      title: "Human Judgment Preserved",
+      desc: "The best systems keep humans focused on strategy and edge cases, not routine work."
+    },
+    {
+      title: "Measured ROI Wins",
+      desc: "Real data closes deals faster than impressive demonstrations every time."
+    }
+  ];
+
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-6 md:pt-4 pb-16 md:pb-6 overflow-y-auto">
+      <div className="max-w-5xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-5"
+        >
+          <span className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-xs md:text-sm font-medium text-cyan-400 uppercase tracking-wider mb-3">
+            <Sparkles className="w-3 h-3" />
+            Insights
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+            Client Patterns: What Keeps Showing Up
+          </h2>
+          <p className="text-sm md:text-base text-slate-400">
+            Across all services clients, we've identified consistent patterns that inform how we sell and what we prioritize.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {patterns.map((pattern, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 + (i * 0.08), duration: 0.5 }}
+              className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-xl p-4"
+            >
+              <h3 className="text-base font-bold text-white mb-1">{pattern.title}</h3>
+              <p className="text-xs text-slate-400">{pattern.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Slide: Success Metrics We Track
+const SlideSuccessMetrics: React.FC<SlideProps> = () => {
+  const metricCategories = [
+    {
+      title: "Engagement Metrics",
+      items: ["Time to first value (<30 days)", "Client satisfaction score", "Stakeholder engagement rate", "Proof sprint success rate", "Expansion conversion rate"],
+      color: "cyan"
+    },
+    {
+      title: "Delivery Metrics",
+      items: ["Workflow automation completeness", "System uptime & reliability", "Error rate & resolution time", "Knowledge transfer completion", "Client team adoption rate"],
+      color: "purple"
+    },
+    {
+      title: "Business Outcome Metrics",
+      items: ["Measured ROI (Cost Out, Revenue In, Speed Up)", "Workflows automated per client", "Time saved per workflow", "Client retention rate", "Reference-ability score"],
+      color: "emerald"
+    }
+  ];
+
+  const successTypes = [
+    {
+      title: "Proof Sprint Success",
+      items: ["ROI target hit or exceeded", "System running in production", "Client team trained and confident", "Clear expansion roadmap identified"]
+    },
+    {
+      title: "Expansion Success",
+      items: ["2+ additional workflows automated", "Agentic OS adoption", "Client becomes reference account", "Measurable compound value"]
+    },
+    {
+      title: "Platform Success",
+      items: ["Reusable patterns documented", "Template library growing", "Sales cycle shortening", "Margin improvement trending up"]
+    }
+  ];
+
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-6 md:pt-4 pb-16 md:pb-6 overflow-y-auto">
+      <div className="max-w-6xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-4"
+        >
+          <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-xs md:text-sm font-medium text-purple-400 uppercase tracking-wider mb-2">
+            <BarChart3 className="w-3 h-3" />
+            Metrics
+          </span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">Success Metrics We Track</h2>
+          <p className="text-xs md:text-sm text-slate-400">We track metrics at three levels: engagement health, delivery excellence, and business outcomes.</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+          {metricCategories.map((cat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 + (i * 0.1), duration: 0.5 }}
+              className={`bg-gradient-to-br from-${cat.color}-500/5 to-${cat.color}-600/5 border border-${cat.color}-500/20 rounded-xl p-3`}
+            >
+              <h3 className={`text-sm font-bold text-${cat.color}-400 mb-2`}>{cat.title}</h3>
+              <ul className="space-y-1">
+                {cat.items.map((item, j) => (
+                  <li key={j} className="text-[10px] text-slate-400 flex items-start gap-1.5">
+                    <span className="text-slate-600 mt-0.5">•</span> {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="mb-3"
+        >
+          <h3 className="text-base font-bold text-white mb-2">What Good Looks Like</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {successTypes.map((type, i) => (
+              <div key={i} className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-xl p-3">
+                <h4 className="text-sm font-bold text-cyan-400 mb-2">{type.title}</h4>
+                <ul className="space-y-1">
+                  {type.items.map((item, j) => (
+                    <li key={j} className="text-[10px] text-slate-400 flex items-start gap-1.5">
+                      <span className="text-slate-600 mt-0.5">•</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-3"
+        >
+          <p className="text-xs text-slate-300">
+            <span className="text-white font-semibold">Measurement Principle:</span> If we can't measure it, we don't claim it. Every engagement produces data that validates our approach or teaches us how to improve.
+          </p>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+// Slide: Why Flywheel Compounds Over Time
+const SlideCompounds: React.FC<SlideProps> = () => {
+  const compoundAreas = [
+    {
+      title: "Every System Adds Reusable Logic",
+      items: ["Workflow templates become starting points", "Integration patterns get reused", "Decision frameworks transfer across clients", "Code becomes infrastructure"]
+    },
+    {
+      title: "Every Workflow Adds Intelligence",
+      items: ["Pattern recognition improves", "Edge cases get documented", "Best practices crystallize", "Training data compounds"]
+    },
+    {
+      title: "Every Client Sharpens ICP Clarity",
+      items: ["We learn which industries convert fastest", "Which workflows deliver highest ROI", "Which objections matter most", "Which expansion paths work best"]
+    },
+    {
+      title: "Every Proof Pack Shortens Sales Cycles",
+      items: ["Industry-specific case studies", "Vertical benchmarks", "Proven ROI models", "Reference-able outcomes"]
+    }
+  ];
+
+  return (
+    <div className="h-[calc(100vh-70px)] md:h-[calc(100vh-100px)] flex items-start md:items-center justify-center px-3 md:px-6 pt-6 md:pt-4 pb-16 md:pb-6 overflow-y-auto">
+      <div className="max-w-5xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-5"
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+            Why Flywheel <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Compounds Over Time</span>
+          </h2>
+          <p className="text-sm md:text-base text-slate-400">
+            Platform Thinking, Not Project Thinking. Every engagement makes the next one faster, smarter, and more valuable.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+          {compoundAreas.map((area, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 + (i * 0.1), duration: 0.5 }}
+              className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-xl p-4"
+            >
+              <h3 className="text-base font-bold text-cyan-400 mb-2">{area.title}</h3>
+              <ul className="space-y-1">
+                {area.items.map((item, j) => (
+                  <li key={j} className="text-xs text-slate-400 flex items-start gap-2">
+                    <span className="text-slate-600">•</span> {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-xl p-4"
+        >
+          <p className="text-sm text-slate-300">
+            <span className="text-white font-semibold">Strategic Implication:</span> We're not a services firm that builds custom solutions. We're a platform company that delivers services. Every client engagement strengthens the platform. Every platform improvement accelerates client delivery.
+          </p>
         </motion.div>
       </div>
     </div>
@@ -2572,7 +3248,7 @@ const FWAIPPresentation: React.FC = () => {
     touchStartY.current = null;
   };
 
-  const SlideComponents = [Slide1, TransitionClear, Slide2, Slide3, Slide4, Slide5, Slide6, TransitionROI, Slide7, Slide8, Slide9, TransitionTeam, Slide10, TransitionCaseStudies, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17, Slide18, Slide19, Slide20, Slide21, Slide22, Slide23];
+  const SlideComponents = [Slide1, TransitionClear, Slide2, Slide3, Slide4, Slide5, Slide6, TransitionROI, Slide7, Slide8, Slide9, TransitionTeam, Slide10, TransitionCaseStudies, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17, Slide18, TransitionDifferent, SlideAIGovernance, SlideOwnership, SlideProduction, SlideImprovement, Slide19, Slide20, Slide21, Slide22, TransitionSuccess, SlideClientPatterns, SlideSuccessMetrics, SlideCompounds, Slide23];
 
   return (
     <div 
@@ -2600,8 +3276,6 @@ const FWAIPPresentation: React.FC = () => {
         ))}
       </div>
 
-      {/* Navigation Hint */}
-      <NavigationHint currentSlide={currentSlide} totalSlides={slides.length} />
 
       {/* Enhanced Navigation */}
       <motion.div 
